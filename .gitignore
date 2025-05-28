@@ -1,0 +1,7 @@
+/jenkins-*
+scripts.sh
+
+.terraform
+.terraform.*
+
+security-groups-old.tf
