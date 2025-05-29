@@ -1,13 +1,17 @@
 def buildAndPush(serviceName) {
-  def imageTag = "${env.DOCKER_REPO}/${serviceName}:latest"
+  def imageTagLatest = "${env.DOCKER_REPO}/${serviceName}:latest"
+  def imageTagSha = "${env.DOCKER_REPO}/${serviceName}:${env.GIT_COMMIT}"
+
   withCredentials([
     usernamePassword(credentialsId: 'dockerhub-creds', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')
   ]) {
     sh """
-      echo "Building and pushing ${imageTag}..."
-      docker build -t ${imageTag} services/${serviceName}
+      cd ./services/${serviceName}
+      echo "Building and pushing ${imageTagLatest}..."
+      docker build -t ${imageTagLatest} -t ${imageTagSha} .
       echo \$DOCKER_PASSWORD | docker login -u \$DOCKER_USERNAME --password-stdin
-      docker push ${imageTag}
+      docker push ${imageTagLatest}
+      docker push ${imageTagSha}
     """
   }
 }

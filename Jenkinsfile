@@ -4,9 +4,9 @@ pipeline {
   agent any
 
   environment {
-    DOCKER_REPO = 'your-docker-username' // change this
+    DOCKER_REPO = 'onukwilip'
     AWS_REGION = 'us-east-1'
-    CLUSTER_NAME = 'your-cluster-name'   // change this
+    CLUSTER_NAME = 'cloudsania-cluster'   // change this
   }
 
   parameters {
