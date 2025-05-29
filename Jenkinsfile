@@ -1,8 +1,10 @@
-def helpers = load 'scripts/helpers.groovy'
-
 pipeline {
   agent{
     label 'ubuntu-docker-agent'
+  }
+
+  triggers {
+    pollSCM('H/2 * * * *')
   }
 
   environment {
