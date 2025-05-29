@@ -1,7 +1,9 @@
 def helpers = load 'scripts/helpers.groovy'
 
 pipeline {
-  label 'ubuntu-docker-agent'
+  agent{
+    label 'ubuntu-docker-agent'
+  }
 
   environment {
     DOCKER_REPO = 'onukwilip'
