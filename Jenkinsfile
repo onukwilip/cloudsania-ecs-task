@@ -1,12 +1,12 @@
 def helpers = load 'scripts/helpers.groovy'
 
 pipeline {
-  agent any
+  label 'ubuntu-docker-agent'
 
   environment {
     DOCKER_REPO = 'onukwilip'
     AWS_REGION = 'us-east-1'
-    CLUSTER_NAME = 'cloudsania-cluster'   // change this
+    CLUSTER_NAME = 'cloudsania-cluster'
   }
 
   parameters {
@@ -14,6 +14,14 @@ pipeline {
   }
 
   stages {
+    stage('Initialize Helpers') {
+      steps {
+        script {
+          helpers = load 'scripts/helpers.groovy'
+        }
+      }
+    }
+
     stage('Install AWS CLI & Terraform') {
       steps {
         sh '''
