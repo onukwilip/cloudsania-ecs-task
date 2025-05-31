@@ -93,6 +93,11 @@ pipeline {
             string(credentialsId: 'ghcr-token', variable: 'GHCR_TOKEN')
           ]) {
             sh """
+              echo "Delete Secret Manager retention..."
+              aws secretsmanager delete-secret \
+              --secret-id ghcr-credentials \
+              --force-delete-without-recovery || true
+
               terraform init
               terraform apply -auto-approve \
                 -var "aws_region=\$AWS_REGION" \
