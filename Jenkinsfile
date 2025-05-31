@@ -92,12 +92,12 @@ pipeline {
             [$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'aws-creds-id'],
             string(credentialsId: 'ghcr-token', variable: 'GHCR_TOKEN')
           ]) {
-            sh '''
+            sh """
               terraform init
               terraform apply -auto-approve \
-                -var 'aws_region=${AWS_REGION}' \
-                -var 'ghcr_token=${GHCR_TOKEN}'
-            '''
+                -var 'aws_region=\$AWS_REGION' \
+                -var 'ghcr_token=\$GHCR_TOKEN'
+            """
           }
         }
       }
