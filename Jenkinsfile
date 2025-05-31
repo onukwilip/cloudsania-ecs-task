@@ -34,13 +34,11 @@ pipeline {
 
           apt-get update -y
 
-          apt-get install -y gnupg software-properties-common curl unzip ca-certificates
+          apt-get install -y gnupg software-properties-common curl unzip ca-certificates awscli
 
-          curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-
-          unzip awscliv2.zip
-
-          ./aws/install || true
+          // curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+          // unzip awscliv2.zip
+          // ./aws/install || true
 
           aws --version
 
