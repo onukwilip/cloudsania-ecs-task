@@ -1,6 +1,6 @@
 def buildAndPush(serviceName) {
-  def imageTagLatest = "${env.DOCKER_REPO}/${serviceName}:latest"
-  def imageTagSha = "${env.DOCKER_REPO}/${serviceName}:${env.GIT_COMMIT}"
+  def imageTagLatest = "ghcr.io/${env.DOCKER_REPO}/${serviceName}:latest"
+  def imageTagSha = "ghcr.io/${env.DOCKER_REPO}/${serviceName}:${env.GIT_COMMIT}"
 
   withCredentials([
     usernamePassword(credentialsId: 'dockerhub-creds', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')

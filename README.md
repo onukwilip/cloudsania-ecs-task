@@ -69,7 +69,7 @@ Backend A  Backend B
 | Load Balancers     | AWS Application Load Balancer (ALB) |
 | Secrers management | AWS Secret Manager                  |
 | CI/CD              | Jenkins                             |
-| Networking         | VPC, subnets, Security Groups       |
+| Networking         | VPC, Subnets, Security Groups       |
 | State Backend      | S3 + DynamoDB (state locking)       |
 
 ---
@@ -79,7 +79,7 @@ Backend A  Backend B
 - **Private subnets** for backend services
 - **Internal ALBs** to limit access to internal services only
 - **Minimal access rules** via Security Groups
-- **Secure secret injection** (e.g., GitHub Container Registry token) via Terraform variables or CI/CD secrets
+- **Secure secret injection** (e.g., GitHub Container Registry token) via Terraform variables and AWS Secret Manager
 
 ---
 
