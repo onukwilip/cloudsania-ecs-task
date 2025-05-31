@@ -49,6 +49,16 @@ pipeline {
       }
     }
 
+    stage('Install Docker CLI') {
+      steps {
+        sh '''
+          apt-get update -y
+          apt-get install -y docker.io
+          docker version
+        '''
+      }
+    }
+
     stage('Build & Push Docker Images') {
       parallel {
         stage('Frontend') {
