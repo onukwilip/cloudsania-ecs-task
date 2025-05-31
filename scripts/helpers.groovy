@@ -9,7 +9,7 @@ def buildAndPush(serviceName) {
       cd ./services/${serviceName}
       echo "Building and pushing ${imageTagLatest}..."
       docker build -t ${imageTagLatest} -t ${imageTagSha} .
-      echo \$DOCKER_PASSWORD | docker login -u \$DOCKER_USERNAME --password-stdin
+      echo \$DOCKER_PASSWORD | docker login -u \$DOCKER_USERNAME -p ghcr.io
       docker push ${imageTagLatest}
       docker push ${imageTagSha}
     """
