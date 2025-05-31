@@ -67,7 +67,7 @@ Backend A  Backend B
 | Infrastructure    | Terraform                           |
 | Container Runtime | Docker + ECS (Fargate)              |
 | Load Balancers    | AWS Application Load Balancer (ALB) |
-| CI/CD             | GitHub Actions (future Jenkins)     |
+| CI/CD             | Jenkins                             |
 | Networking        | VPC, subnets, SGs, NAT GW           |
 | State Backend     | S3 + DynamoDB (state locking)       |
 
