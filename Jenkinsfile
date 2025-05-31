@@ -95,8 +95,8 @@ pipeline {
             sh """
               terraform init
               terraform apply -auto-approve \
-                -var 'aws_region=\$AWS_REGION' \
-                -var 'ghcr_token=\$GHCR_TOKEN'
+                -var "aws_region=\$AWS_REGION" \
+                -var "ghcr_token=\$GHCR_TOKEN"
             """
           }
         }
