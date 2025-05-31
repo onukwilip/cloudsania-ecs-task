@@ -61,15 +61,16 @@ Backend A  Backend B
 
 ## 🛠 Tech Stack
 
-| Component         | Tool/Service                        |
-| ----------------- | ----------------------------------- |
-| Cloud Provider    | AWS                                 |
-| Infrastructure    | Terraform                           |
-| Container Runtime | Docker + ECS (Fargate)              |
-| Load Balancers    | AWS Application Load Balancer (ALB) |
-| CI/CD             | Jenkins                             |
-| Networking        | VPC, subnets, Security Groups       |
-| State Backend     | S3 + DynamoDB (state locking)       |
+| Component          | Tool/Service                        |
+| ------------------ | ----------------------------------- |
+| Cloud Provider     | AWS                                 |
+| Infrastructure     | Terraform                           |
+| Container Runtime  | Docker + ECS (Fargate)              |
+| Load Balancers     | AWS Application Load Balancer (ALB) |
+| Secrers management | AWS Secret Manager                  |
+| CI/CD              | Jenkins                             |
+| Networking         | VPC, subnets, Security Groups       |
+| State Backend      | S3 + DynamoDB (state locking)       |
 
 ---
 
