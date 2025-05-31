@@ -29,8 +29,11 @@ pipeline {
     stage('Install AWS CLI & Terraform') {
       steps {
         sh '''
+          echo "Verifying network connectivity..."
+          sh 'curl -I https://google.com || echo "No internet!"'
+
           apt-get update -y
-          apt-get install -y gnupg software-properties-common curl unzip
+          apt-get install -y gnupg software-properties-common curl unzip ca-certificates
 
           curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
           unzip awscliv2.zip
