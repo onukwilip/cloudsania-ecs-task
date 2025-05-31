@@ -5,3 +5,4 @@ scripts.sh
 .terraform.*
 
 security-groups-old.tf
+node_modules
