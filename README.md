@@ -68,7 +68,7 @@ Backend A  Backend B
 | Container Runtime | Docker + ECS (Fargate)              |
 | Load Balancers    | AWS Application Load Balancer (ALB) |
 | CI/CD             | Jenkins                             |
-| Networking        | VPC, subnets, SGs, NAT GW           |
+| Networking        | VPC, subnets, Security Groups       |
 | State Backend     | S3 + DynamoDB (state locking)       |
 
 ---
