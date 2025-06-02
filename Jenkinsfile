@@ -14,7 +14,7 @@ pipeline {
   }
 
   parameters {
-    booleanParam(name: 'REDEPLOY', defaultValue: false, description: 'Force ECS service redeploy')
+    booleanParam(name: 'REDEPLOY', defaultValue: true, description: 'Force ECS service redeploy')
   }
 
   stages {
