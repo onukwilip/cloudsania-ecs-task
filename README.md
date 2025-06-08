@@ -142,17 +142,32 @@ You can customize thresholds and capacity in the Terraform autoscaling policies.
 
 ---
 
-## 🔄 CI/CD Plans (Coming Soon!)
+## 🔄 CI/CD with Jenkins
 
-The next phase of this project includes:
+To automate deployments, I set up a **Jenkins-powered CI/CD pipeline** that runs Terraform and deploys all services with a single push.
 
-- A Jenkins pipeline to automate:
+Here’s what it does:
 
-  - Terraform validation and deployment
-  - GHCR authentication and image pulls
-  - Dynamic ECS service creation
+### 🛠️ What I Built
 
-Stay tuned! 🚧
+- I **ran Jenkins locally inside Docker**, no cloud hosting needed
+- Then, I **connected Jenkins to my local Docker engine**, so pipeline jobs could launch their own lightweight containers
+- I set up **Docker-based Jenkins cloud agents**, so each pipeline stage runs in a clean, isolated container (instead of running inside the Jenkins server itself)
+- Finally, I built a Jenkins pipeline that **runs Terraform automatically** with my GitHub Container Registry (GHCR) token, deploying all ECS services whenever needed
+
+### ⚙️ Pipeline Flow (Simplified)
+
+1. **Start Jenkins** locally in Docker
+2. **Pull credentials securely** (e.g. GHCR token, and AWS creds via environment variables)
+3. **Spin up a container** to run Terraform
+4. **Run Terraform plan/apply** to update infrastructure
+5. ✅ Done! Your ECS services are deployed or updated with the latest containers
+
+### 🧠 Result
+
+- The whole deployment process is now **automated and reproducible**
+- No more manual `terraform apply`
+- Each Jenkins job runs in its **own container**, so everything is clean, fast, and isolated
 
 ---
 
